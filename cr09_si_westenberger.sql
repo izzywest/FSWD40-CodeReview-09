@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2018 at 01:24 PM
+-- Generation Time: Jun 17, 2018 at 02:27 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -132,10 +132,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_ID`, `first_name`, `last_name`, `phone`, `birthday`, `fk_address_ID`) VALUES
-(1238, 'Uschi', 'Müller', 1213334, '1958-06-18', NULL),
-(12345, 'Kurt', 'Schmitt', 2147483647, '1985-06-10', NULL),
-(12346, 'Erika', 'Stift', 123023944, '1973-02-13', NULL),
-(12347, 'Gerhard', 'Seemann', 1213333, '1962-04-02', NULL);
+(1238, 'Uschi', 'Müller', 1213334, '1958-06-18', 101),
+(12345, 'Kurt', 'Schmitt', 2147483647, '1985-06-10', 104),
+(12346, 'Erika', 'Stift', 123023944, '1973-02-13', 103),
+(12347, 'Gerhard', 'Seemann', 1213333, '1962-04-02', 101);
 
 -- --------------------------------------------------------
 
@@ -156,10 +156,10 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`driver_ID`, `first_name`, `last_name`, `drivers_license`, `fk_address_ID`) VALUES
-(140, 'Uschi', 'Müller', '123484', NULL),
-(141, 'Stefan', 'Schmitt', '123478', NULL),
-(142, 'Lisa', 'Müller', '1256078', NULL),
-(143, 'Karin', 'Wolke', '1256099', NULL);
+(140, 'Uschi', 'Müller', '123484', 100),
+(141, 'Stefan', 'Schmitt', '123478', 104),
+(142, 'Lisa', 'Müller', '1256078', 103),
+(143, 'Karin', 'Wolke', '1256099', 102);
 
 -- --------------------------------------------------------
 
@@ -181,12 +181,12 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`emp_ID`, `first_name`, `last_name`, `position`, `fk_address_ID`, `fk_salary_level`) VALUES
-(1256, 'Katrin', 'Maier', 'Marketing', NULL, NULL),
-(1257, 'Siegfried', 'Schmittke', 'Test driver', NULL, NULL),
-(1258, 'Wanja', 'Stadtbäumer', 'Telephonist', NULL, NULL),
-(1259, 'Nicola', 'Pichler', 'Insurance consultant', NULL, NULL),
-(1260, 'Ellen', 'Schiffer', 'Social Media Manager', NULL, NULL),
-(1261, 'Norbert', 'Peters', 'Designer', NULL, NULL);
+(1256, 'Katrin', 'Maier', 'Marketing', 100, 2),
+(1257, 'Siegfried', 'Schmittke', 'Test driver', 104, 4),
+(1258, 'Wanja', 'Stadtbäumer', 'Telephonist', 103, 0),
+(1259, 'Nicola', 'Pichler', 'Insurance consultant', 102, 3),
+(1260, 'Ellen', 'Schiffer', 'Social Media Manager', 101, 2),
+(1261, 'Norbert', 'Peters', 'Designer', 103, 1);
 
 -- --------------------------------------------------------
 
@@ -356,7 +356,7 @@ CREATE TABLE `salaries` (
 --
 
 INSERT INTO `salaries` (`salary_level`, `salary_value`, `fk_emp_ID`) VALUES
-(0, 20000, NULL),
+(0, 20000, 1256),
 (1, 40000, NULL),
 (2, 50000, NULL),
 (3, 60000, NULL),
